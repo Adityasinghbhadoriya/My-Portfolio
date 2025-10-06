@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: font1;
+  src: url(./assets/Fonts/Lausanne-300.woff2);
+}
+
+@font-face {
+  font-family: font2;
+  src: url(./assets/Fonts/Lausanne-500.woff2);
+}
+
+@font-face {
+  font-family: font3;
+  src: url(./assets/Fonts/RubikMonoOne-Regular.ttf);
+}
+
+:root {
+  --glow-color: rgba(255, 136, 0, 0.75);
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* .title {
+  text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+  letter-spacing: 2px;
+  color:orange
+} */
+
+/* @layer utilities {
+  .text-stroke {
+    background-color: orange;            
+  }
+} */
+
+body{
+  background-color: black;
+  color: white;
+}
+
+.circle{
+  animation-name: anime1;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes anime1 {
+    from{
+        transform: translate(55%,0%);
+    }
+    To{
+        transform: translate(0%,30%);
+    }
+}
+
+.btn-bg {
+  transform: translateY(-100%);
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.8s;
+  opacity: 0;
+}
+
+.group:hover .btn-bg {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+.marquee {
+  position: relative;
+  white-space: nowrap;
+  
+}
+
+.marquee-inner {
+  display: inline-flex;
+  animation: marquee 15s linear infinite;
+  
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee1 {
+  position: relative;
+  white-space: nowrap;
+ 
+}
+.marquee-inner1 {
+  display: inline-flex;
+  animation: marquee1 15s linear infinite;
+  
+}
+@keyframes marquee1 {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.subheading{
+    transform: translateY(-100%);
+    transition: all cubic-bezier(0.19,1,0.22,1) 0.8s;
+}
+.heading:hover{
+    border-top: 2px solid white;
+}
+
+.heading:hover .subheading{
+     transform: translateY(0);  
+     opacity: 1;  
+}
+
+.project {
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.project:hover {
+  animation: pressIn 1s ease forwards;
+}
+
+@keyframes pressIn {
+  0% {
+    transform: perspective(900px) rotateY(0deg);
+    transform-origin: right center;
+  }
+  30% {
+    transform: perspective(900px) rotateY(-5deg); /* pushed from right */
+    transform-origin: left center;
+  }
+  60% {
+    transform: perspective(900px) rotateY(5deg);  /* pushed from left */
+    transform-origin: right center;
+  }
+  100% {
+    transform: perspective(900px) rotateY(0deg);
+    transform-origin: center center;
+  }
+}
