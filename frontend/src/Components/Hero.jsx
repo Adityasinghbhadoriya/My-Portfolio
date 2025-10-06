@@ -32,7 +32,7 @@ const Hero = () => {
           )}
         </div>
 
-        <div className="flex gap-5 pt-30 lg:pt-0 ">
+        <div className="flex gap-5 pt-45 lg:pt-0 ">
           <a href="#contact" className="relative px-7 py-2 bg-zinc-100 text-black rounded-lg cursor-pointer overflow-hidden group hover:bg-zinc-700 hover:text-zinc-50 duration-200">
             Say hello
           </a>
