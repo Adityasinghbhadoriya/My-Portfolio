@@ -1,21 +1,13 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from './Pages/Home'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/all'
-import MouseFollower from './Components/MouseFollower'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home';
 
 const App = () => {
-
   return (
-    <div className=''>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-      </Routes>
-      {/* <MouseFollower/> */}
-    </div>
-  )
-}
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  );
+};
 
-export default App
+export default App;

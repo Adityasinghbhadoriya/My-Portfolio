@@ -12,7 +12,6 @@ const Root = () => {
 
   return (
     <BrowserRouter>
-     
       <Navbar ref={navbarRef} />
       <Stairs navbarRef={navbarRef}>
         <App />

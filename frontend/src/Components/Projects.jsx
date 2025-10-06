@@ -96,15 +96,15 @@ const Projects = () => {
   };
 
   return (
-    <div id='work' className='relative font-[font2] min-h-screen pt-50 px-20'>
+    <div id='work' className='relative font-[font2] min-h-screen pt-30 lg:pt-50 px-5 lg:px-20'>
 
       <div className="relative z-10">
         <h1 className='text-6xl'>Projects</h1>
       </div>
 
       {/* Decorative circles */}
-      <div className='absolute h-80 w-80 bg-orange-500 rounded-full blur-3xl top-130 right-10 -z-10'></div>
-      <div className='circle absolute h-80 w-80 bg-orange-500 rounded-full blur-3xl top-150 right-50 -z-10'></div>
+      <div className='absolute h-80 w-80 bg-orange-500 rounded-full blur-3xl lg:top-130 top-50  lg:right-10 -z-10'></div>
+      <div className='circle absolute h-80 w-80 bg-orange-500 rounded-full blur-3xl lg:top-150 lg:right-50 -z-10'></div>
 
       {/* Project Grid */}
       <div className='flex flex-wrap gap-10 mt-20 relative z-10 justify-center'>
@@ -112,22 +112,17 @@ const Projects = () => {
           <div 
             key={index}
             onClick={() => handleCardClick(project.link)}
-            className={`w-160 h-115 bg-zinc-500 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg ${
+            className={`lg:w-160 lg:h-115 bg-zinc-500 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg ${
               !project.link && 'opacity-80 cursor-not-allowed'
             }`}
           >
-            <img className='h-80 w-full object-cover' src={project.img} alt={project.name} />
+            <img className='lg:h-80 h-50 w-full object-cover' src={project.img} alt={project.name} />
 
             <div className='h-40 w-full bg-zinc-900'>
               <div className='flex justify-between p-5 items-center'>
-                {/* Name + dot + SVG */}
                 <div className='flex gap-3 items-center'>
                   <h1 className='text-3xl'>{project.name}</h1>
-
-                  {/* Orange dot disappears on hover */}
                   <div className='h-3 w-3 bg-orange-400 rounded-full transition-opacity duration-300 group-hover:opacity-0'></div>
-
-                  {/* SVG slides in from left */}
                   <svg
                     className='w-5 opacity-0 -translate-x-3 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0'
                     xmlns="http://www.w3.org/2000/svg"

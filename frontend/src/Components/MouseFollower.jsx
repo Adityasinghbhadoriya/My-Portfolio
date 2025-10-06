@@ -1,12 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 
-const MouseFollower = ({ color = "orange", size = 20, speed = 0.2, containerRef }) => {
-  const ballRef = useRef(null);
+const MouseFollower = () => {
+  const followerRef = useRef(null);
 
   useEffect(() => {
-    const ball = ballRef.current;
-    const container = containerRef?.current || document.body;
+    const follower = followerRef.current;
 
     let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     let pos = { x: mouse.x, y: mouse.y };
@@ -16,41 +15,29 @@ const MouseFollower = ({ color = "orange", size = 20, speed = 0.2, containerRef 
       mouse.y = e.clientY;
     };
 
-    const animate = () => {
-      const containerY = containerRef ? gsap.getProperty(container, "y") : 0;
-
-      pos.x += (mouse.x - pos.x) * speed;
-      pos.y += (mouse.y - pos.y) * speed;
-
-      gsap.set(ball, {
-        x: pos.x,
-        y: pos.y - containerY,
-      });
-
-      requestAnimationFrame(animate);
-    };
-
     window.addEventListener("mousemove", handleMouseMove);
-    animate();
 
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [containerRef, speed]);
+    gsap.ticker.add(() => {
+      pos.x += (mouse.x - pos.x) * 0.15;
+      pos.y += (mouse.y - pos.y) * 0.15;
+      gsap.set(follower, { x: pos.x, y: pos.y });
+    });
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      gsap.ticker.remove(() => {});
+    };
+  }, []);
 
   return (
     <div
-      ref={ballRef}
+      ref={followerRef}
+      className="fixed top-0 left-0 w-5 h-5 bg-orange-500 rounded-full pointer-events-none mix-blend-difference opacity-80"
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        backgroundColor: color,
-        pointerEvents: "none",
+        transform: "translate(-50%, -50%)",
         zIndex: 9999,
       }}
-    />
+    ></div>
   );
 };
 

@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import lettera from '../../public/letter-a.png';
-import { FaDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaDownload, FaGithub, FaLinkedin, FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = React.forwardRef((props, ref) => {
   const [activeLink, setActiveLink] = useState('Home');
   const [underlineStyle, setUnderlineStyle] = useState({});
+  const [isOpen, setIsOpen] = useState(false);
   const navRefs = useRef({});
 
   const navLinks = [
@@ -26,19 +27,16 @@ const Navbar = React.forwardRef((props, ref) => {
   }, [activeLink]);
 
   return (
-    <div ref={ref} className="pt-5 px-20">
+    <div ref={ref} className="pt-5 lg:px-20 px-0">
       <div
-        className="fixed top-5 left-20 right-20 font-[font2] h-18 flex justify-between 
+        className="fixed top-5 left-5 right-5 lg:left-20 lg:right-20 font-[font2] h-18 flex justify-between 
                    pr-10 pl-10 border border-zinc-700 rounded-lg bg-zinc-900 z-50"
       >
-        {/* Logo */}
         <div className="w-14 pt-2">
           <img src={lettera} alt="" />
         </div>
-
-        {/* Navigation */}
         <div className="pt-5 flex justify-between">
-          <div className="flex gap-8 pl-8 text-zinc-400 relative">
+          <div className="hidden md:flex gap-8 pl-8 text-zinc-400 relative">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -50,8 +48,6 @@ const Navbar = React.forwardRef((props, ref) => {
                 {link.name}
               </a>
             ))}
-
-            {/* Underline animation */}
             <span
               className="absolute top-7 h-0.5 bg-orange-400 transition-all duration-300"
               style={{
@@ -60,10 +56,13 @@ const Navbar = React.forwardRef((props, ref) => {
               }}
             />
           </div>
+          <div className="md:hidden flex items-center mb-5">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <FaTimes size={24} className="text-zinc-400" /> : <FaBars size={24} className="text-zinc-400" />}
+            </button>
+          </div>
         </div>
-
-        {/* Socials */}
-        <div className="flex gap-8 text-zinc-400 pt-5">
+        <div className="hidden md:flex gap-8 text-zinc-400 pt-5">
           <a href="https://www.linkedin.com/in/aditya-singh-bhadoriya/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition">
             <FaLinkedin size={22} />
           </a>
@@ -78,6 +77,35 @@ const Navbar = React.forwardRef((props, ref) => {
           </div>
         </div>
       </div>
+      {isOpen && (
+        <div className="md:hidden fixed top-0 left-0 w-full h-screen bg-zinc-900 bg-opacity-95 flex flex-col items-center justify-center gap-10 z-40">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => { setActiveLink(link.name); setIsOpen(false); }}
+              className="text-2xl text-zinc-400 hover:text-orange-400 transition"
+            >
+              {link.name}
+            </a>
+          ))}
+
+          <div className="flex gap-8 text-zinc-400 mt-8">
+            <a href="https://www.linkedin.com/in/aditya-singh-bhadoriya/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition">
+              <FaLinkedin size={28} />
+            </a>
+            <a href="https://github.com/Adityasinghbhadoriya" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition">
+              <FaGithub size={28} />
+            </a>
+            <div className='flex gap-2 items-center'>
+              <a href="https://drive.google.com/file/d/18Yn2yw6nmIBnxcXv_FV4TC8TGuEep_0W/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition">
+                <FaDownload size={28} />
+              </a>
+              <span className="text-zinc-400">Resume</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 });

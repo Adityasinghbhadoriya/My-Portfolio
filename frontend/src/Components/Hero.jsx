@@ -7,18 +7,18 @@ const Hero = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowTyped(true);
-    }, 2000); // 2000ms = 2s delay before typing starts
+    }, 2000); 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div id="home" className="font-[font2] h-full w-full pt-40 pl-20">
+    <div id="home" className="font-[font2] min-h-screen w-full pt-40 pl-5 lg:pl-20">
       <div className="right h-full w-full">
-        <div className="bg-zinc-800 w-[23vw] h-8 p-1 rounded-md">
+        <div className="bg-zinc-800 w-90  lg:w-[23vw] lg:h-8 p-1 rounded-md">
           <h1>Aditya Singh Bhadoriya — Full Stack Developer</h1>
         </div>
 
-        <div className="mt-10 text-8xl leading-snug h-80">
+        <div className="mt-10 text-7xl lg:text-8xl leading-snug h-80">
           {showTyped && (
             <ReactTyped
               strings={[
@@ -32,7 +32,7 @@ const Hero = () => {
           )}
         </div>
 
-        <div className="flex gap-5 ">
+        <div className="flex gap-5 pt-30 lg:pt-0 ">
           <a href="#contact" className="relative px-7 py-2 bg-zinc-100 text-black rounded-lg cursor-pointer overflow-hidden group hover:bg-zinc-700 hover:text-zinc-50 duration-200">
             Say hello
           </a>

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 
 function Eyes() {
     useEffect(() => {
-        if (typeof window === 'undefined') return; // 🛡️ extra safety
+        if (typeof window === 'undefined') return; 
 
         const handleMouseMove = (e) => {
             const moveEye = (eyeRef) => {
@@ -15,7 +15,7 @@ function Eyes() {
                     const dx = e.clientX - eyeCenterX;
                     const dy = e.clientY - eyeCenterY;
                     const angle = Math.atan2(dy, dx);
-                    const distance = Math.min(rect.width / 4, Math.hypot(dx, dy)); // Limit movement to within the parent
+                    const distance = Math.min(rect.width / 4, Math.hypot(dx, dy)); 
                     const newX = Math.cos(angle) * distance;
                     const newY = Math.sin(angle) * distance;
 
@@ -35,46 +35,46 @@ function Eyes() {
     }, []);
 
     return (
-        <div className='mt-25 font-[font3]' >
-            <div className="marquee overflow-hidden w-full h-35 -mb-30 p-3 flex gap-10 bg-orange-500">
-                <div className="marquee-inner flex gap-20 text-9xl font-bold ">
+        <div className='lg:mt-35 mt-40 font-[font3]' >
+            <div className="marquee overflow-hidden w-full h-22 lg:h-35 -mb-80 lg:-mb-20 p-3 flex gap-10 bg-orange-500">
+                <div className="marquee-inner flex gap-20 text-6xl lg:text-9xl font-bold ">
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                 </div>
-               <div className="marquee-inner flex gap-20 text-9xl font-bold ">
+               <div className="marquee-inner flex gap-20 text-6xl lg:text-9xl font-bold ">
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                 </div>
             </div>
-            <div className='eyes w-full h-screen overflow-hidden flex items-center justify-center'>
+            <div className='eyes w-full min-h-screen overflow-hidden flex items-center justify-center'>
                 <div data-scroll data-scroll-speed='-.7' className='relative h-100 w-150 bg-cover bg-center'>
                     <div className='absolute flex gap-10 top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]'>
                         <div className='flex items-center justify-center w-[16vw] h-[16vw] rounded-full bg-zinc-100'>
@@ -96,42 +96,42 @@ function Eyes() {
                     </div>
                 </div>
             </div>
-            <div className="marquee1 overflow-hidden w-full h-35 -mt-30 p-3 flex gap-10 bg-orange-500">
-                <div className="marquee-inner1 flex gap-20 text-9xl font-bold ">
+            <div className="marquee1 overflow-hidden w-full h-22 lg:h-35 -mt-80 lg:-mt-20 p-3 flex gap-10 bg-orange-500">
+                <div className="marquee-inner1 flex gap-20 text-6xl lg:text-9xl font-bold ">
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                 </div>
-               <div className="marquee-inner1 flex gap-20 text-9xl font-bold ">
+               <div className="marquee-inner1 flex gap-20 text-6xl lg:text-9xl font-bold ">
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CODE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">DESIGN</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">CREATE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                     <span className="text-stroke">INSPIRE</span>
-                    <span className='h-5 w-5 bg-white rounded-full mt-13'></span>
+                    <span className='h-5 w-5 bg-white rounded-full mt-5 lg:mt-13'></span>
                 </div>
             </div>
         </div>

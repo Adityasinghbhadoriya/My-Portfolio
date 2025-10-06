@@ -14,7 +14,7 @@ const Contact = () => {
         'service_ecddt0e',     // Your Service ID
         'template_cyrsfr8',    // Your Template ID
         form.current,
-        'onFheeTGQypDXiqpM'   // Your Public Key
+        'onFheeTGQypDXiqpM'    // Your Public Key
       )
       .then(
         (result) => {
@@ -30,24 +30,44 @@ const Contact = () => {
   };
 
   return (
-    <div id='contact' className="pt-24 px-20 min-h-screen font-[font2] bg-orange-400 text-black flex items-start justify-end gap-20">
-      <div className='h-150'>
-        <img src={contactimage} alt="" className=' w-full h-full' />
+    <div
+      id="contact"
+      className="
+        pt-24 pb-20 px-20 min-h-screen font-[font2] bg-orange-400 text-black 
+        flex items-start justify-end gap-20
+        max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:gap-10 max-lg:px-10
+        max-sm:px-6
+      "
+    >
+      {/* Image Section */}
+      <div className="h-150 max-lg:h-auto max-lg:w-[80%] max-sm:w-full flex justify-center">
+        <img
+          src={contactimage}
+          alt=""
+          className="w-full h-full object-contain"
+        />
       </div>
 
-      <div className="w-1/2 flex flex-col gap-8">
-        <h1 className="text-6xl">Contact</h1>
+      {/* Form Section */}
+      <div className="w-1/2 flex flex-col gap-8 max-lg:w-[90%] max-sm:w-full">
+        <h1 className="text-6xl max-md:text-4xl max-sm:text-3xl text-center lg:text-left">
+          Contact
+        </h1>
 
-        <div>
-          <h1 className='text-xl bg-gradient-to-r from-zinc-600 to-zinc-400 bg-clip-text text-transparent -mt-5'>
+        <div className="text-center lg:text-left">
+          <h1 className="text-xl bg-gradient-to-r from-zinc-600 to-zinc-400 bg-clip-text text-transparent -mt-5 max-md:text-lg">
             Working together should be effortless and fun. You can start the conversation through the form or the contact info below.
           </h1>
-          <h1>Email: adityabhadoriya32@gmail.com</h1>
+          <h1 className="text-lg mt-2">Email: <span className="underline">adityabhadoriya32@gmail.com</span></h1>
         </div>
 
-        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="flex flex-col gap-4 mt-4"
+        >
           <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-xl">Full Name</label>
+            <label htmlFor="name" className="text-xl max-md:text-lg">Full Name</label>
             <input
               type="text"
               id="name"
@@ -58,7 +78,7 @@ const Contact = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-xl">Email</label>
+            <label htmlFor="email" className="text-xl max-md:text-lg">Email</label>
             <input
               type="email"
               id="email"
@@ -69,7 +89,7 @@ const Contact = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-xl">Message</label>
+            <label htmlFor="message" className="text-xl max-md:text-lg">Message</label>
             <textarea
               id="message"
               name="message"
@@ -81,13 +101,19 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="self-start bg-black text-orange-400 px-20 py-2 rounded-xl text-lg mt-4 hover:bg-white hover:text-black duration-300 cursor-pointer"
+            className="
+              self-start bg-black text-orange-400 px-20 py-2 rounded-xl text-lg mt-4 
+              hover:bg-white hover:text-black duration-300 cursor-pointer
+              max-sm:px-10
+            "
           >
             Send
           </button>
         </form>
 
-        {success && <p className="text-green-600 mt-2">{success}</p>}
+        {success && (
+          <p className="text-green-600 mt-2 text-center lg:text-left">{success}</p>
+        )}
       </div>
     </div>
   );
